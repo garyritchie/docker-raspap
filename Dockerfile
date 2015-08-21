@@ -37,15 +37,16 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -q -y install \
 	iw \
 	dnsmasq \
 	&& apt-get clean
+	# wicd-cli \
 
-RUN wget http://dl.dropbox.com/u/1663660/hostapd/hostapd.zip
+# RUN wget http://dl.dropbox.com/u/1663660/hostapd/hostapd.zip
 
-RUN unzip hostapd.zip && \
-	mv /usr/sbin/hostapd /usr/sbin/hostapd.original && \
-	mv hostapd /usr/sbin/hostapd.edimax && \
-	ln -sf /usr/sbin/hostapd.edimax /usr/sbin/hostapd && \
-	chown root.root /usr/sbin/hostapd && \
-	chmod 755 /usr/sbin/hostapd
+# RUN unzip hostapd.zip && \
+# 	mv /usr/sbin/hostapd /usr/sbin/hostapd.original && \
+# 	mv hostapd /usr/sbin/hostapd.edimax && \
+# 	ln -sf /usr/sbin/hostapd.edimax /usr/sbin/hostapd && \
+# 	chown root.root /usr/sbin/hostapd && \
+# 	chmod 755 /usr/sbin/hostapd
 
 ## Add the following to the end of /etc/sudoers:
 
