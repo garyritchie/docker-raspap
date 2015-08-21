@@ -1,4 +1,4 @@
-FROM debian:wheezy
+FROM resin/rpi-raspbian:wheezy
 
 MAINTAINER Gary Ritchie <gary@garyritchie.com>
 
