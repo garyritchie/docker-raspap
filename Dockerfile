@@ -6,8 +6,8 @@ MAINTAINER Gary Ritchie <gary@garyritchie.com>
 # RUN echo "deb http://deb.best-hosting.cz/debian/ wheezy main" > /etc/apt/sources.list.d/best-hosting.list
 
 #RUN wget https://archive.raspbian.org/raspbian.public.key -O - | sudo apt-key add -
-RUN echo "deb http://archive.raspbian.org/raspbian wheezy main contrib non-free" > /etc/apt/sources.list.d/raspbian.list &&
-	echo "deb-src http://archive.raspbian.org/raspbian wheezy main contrib non-free" >> /etc/apt/sources.list.d/raspbian.list
+RUN echo "deb http://archive.raspbian.org/raspbian wheezy main contrib non-free" > /etc/apt/sources.list
+RUN echo "deb-src http://archive.raspbian.org/raspbian wheezy main contrib non-free" >> /etc/apt/sources.list
 
 # RUN echo "deb http://httpredir.debian.org/debian wheezy main" > /etc/apt/sources.list
 # RUN echo "deb http://httpredir.debian.org/debian wheezy-updates main" >> /etc/apt/sources.list
