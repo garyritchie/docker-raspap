@@ -1,11 +1,15 @@
 # makefile
 
 raspap: .build
+## volume-mount all the networking things
 	-@docker rm -f $@ > /dev/null
 	docker run -d \
 		--name $@ \
 		-p 80:80 \
 		--net=host \
+		-v /etc/network/interfaces \
+		-v /etc/hosts \
+		-v /etc/dnsmasq.conf \
 		raspap
 
 build: .build
