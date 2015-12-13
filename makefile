@@ -5,11 +5,11 @@ raspap: .build
 ## volume-mount all the networking things
 	-@docker rm -f $@ > /dev/null
 	docker run -d \
-		--restart=always
+		--restart=always \
 		--privileged \
 		--name $@ \
-		-p 80:80 \
 		--net=host \
+		-p 80:80 \
 		-v /etc/network/interfaces:/etc/network/interfaces \
 		-v /etc/hosts:/etc/hosts \
 		-v /etc/dnsmasq.conf:/etc/dnsmasq.conf \
