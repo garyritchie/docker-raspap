@@ -55,7 +55,7 @@ RUN echo 'www-data ALL=(ALL) NOPASSWD:/sbin/ifdown wlan0,/sbin/ifup wlan0,/bin/c
 /etc/init.d/hostapd start,/etc/init.d/hostapd stop,/etc/init.d/dnsmasq start,/etc/init.d/dnsmasq stop,/bin/cp /tmp/dhcpddata /etc/dnsmasq.conf' > /etc/sudoers.d/www-data
 
 RUN chmod 0440 /etc/sudoers.d/www-data
-RUN git clone https://github.com/billz/raspap-webgui /var/www/ap
+COPY raspap-webgui /var/www/ap
 RUN chown -R www-data:www-data /var/www
 
 EXPOSE 80
