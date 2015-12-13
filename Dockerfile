@@ -36,7 +36,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -q -y install \
 	hostap-utils \
 	iw \
 	dnsmasq \
-	wpa_cli \
+	wpasupplicant \
 	&& apt-get clean
 	# wicd-cli \
 
@@ -51,9 +51,7 @@ RUN unzip hostapd.zip && \
 
 ## Add the following to the end of /etc/sudoers:
 
-RUN echo 'www-data ALL=(ALL) NOPASSWD:/sbin/ifdown wlan0,/sbin/ifup wlan0,/bin/cat /etc/wpa_supplicant/wpa_supplicant.conf,/bin/cp /tmp/wifidata \
-/etc/wpa_supplicant/wpa_supplicant.conf,/sbin/wpa_cli scan_results,/sbin/wpa_cli scan,/bin/cp /tmp/hostapddata /etc/hostapd/hostapd.conf, \
-/etc/init.d/hostapd start,/etc/init.d/hostapd stop,/etc/init.d/dnsmasq start,/etc/init.d/dnsmasq stop,/bin/cp /tmp/dhcpddata /etc/dnsmasq.conf' > /etc/sudoers.d/www-data
+RUN echo 'www-data ALL=(ALL) NOPASSWD: ALL\n%www-date ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/www-data
 
 RUN chmod 0440 /etc/sudoers.d/www-data
 RUN git clone https://github.com/billz/raspap-webgui /var/www/ap
