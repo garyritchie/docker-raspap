@@ -1,19 +1,11 @@
 # makefile
 
 raspap: .build
-	file=/etc/dnsmasq.conf
-
-	if [ ! -e "${file}" ] ; then
-	    touch "${file}"
-	fi
-
-	if [ ! -w "${file}" ] ; then
-	    echo cannot write to ${file}
-	    exit 1
-	fi
+	touch /etc/dnsmasq.conf
 ## volume-mount all the networking things
 	-@docker rm -f $@ > /dev/null
 	docker run -d \
+		--restart=always
 		--privileged \
 		--name $@ \
 		-p 80:80 \
