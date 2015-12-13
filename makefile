@@ -13,6 +13,7 @@ raspap: .build
 		-v /etc/network/interfaces:/etc/network/interfaces \
 		-v /etc/hosts:/etc/hosts \
 		-v /etc/dnsmasq.conf:/etc/dnsmasq.conf \
+		-v /etc/wpa_supplicant:/etc/wpa_supplicant \
 		raspap
 
 build: .build
